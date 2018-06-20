@@ -1,6 +1,6 @@
-// ConsoleApplication1.cpp : Defines the entry point for the console application.
+п»ї// ConsoleApplication1.cpp : Defines the entry point for the console application.
 //
-//Добавить к каждому элементу первое абсолютное нечетное число.
+//Р”РѕР±Р°РІРёС‚СЊ Рє РєР°Р¶РґРѕРјСѓ СЌР»РµРјРµРЅС‚Сѓ РїРµСЂРІРѕРµ Р°Р±СЃРѕР»СЋС‚РЅРѕРµ РЅРµС‡РµС‚РЅРѕРµ С‡РёСЃР»Рѕ.
 #define _CRT_SECURE_NO_WARNINGS
 #include "stdafx.h"
 #include <iostream>
@@ -55,7 +55,7 @@ int random(int M)
 	return rand() % (2 * M + 1) - M;
 }
 
-// проверка корректности символа в имени файла
+// РїСЂРѕРІРµСЂРєР° РєРѕСЂСЂРµРєС‚РЅРѕСЃС‚Рё СЃРёРјРІРѕР»Р° РІ РёРјРµРЅРё С„Р°Р№Р»Р°
 bool correct_symbol(char c)										//!!!!!!!!!!!!!
 {
 	switch (c)
@@ -73,7 +73,7 @@ bool correct_symbol(char c)										//!!!!!!!!!!!!!
 	}
 }
 
-// проверка корректности имени
+// РїСЂРѕРІРµСЂРєР° РєРѕСЂСЂРµРєС‚РЅРѕСЃС‚Рё РёРјРµРЅРё
 bool correct_name(string name)
 {
 	int i = 1;
@@ -83,7 +83,7 @@ bool correct_name(string name)
 	return goodsymbol;
 }
 
-//ввод имени файла
+//РІРІРѕРґ РёРјРµРЅРё С„Р°Р№Р»Р°
 string input_file_name()
 {
 	char *filename;
@@ -91,21 +91,21 @@ string input_file_name()
 
 	do
 	{
-		cout << "Введите имя файла(без расширения):  ";
+		cout << "Р’РІРµРґРёС‚Рµ РёРјСЏ С„Р°Р№Р»Р°(Р±РµР· СЂР°СЃС€РёСЂРµРЅРёСЏ):  ";
 		cin >> filename;
 		if (correct_name(filename))
 		{
-			strcat(filename, ".txt");//объединение строк конкотенацией
+			strcat(filename, ".txt");//РѕР±СЉРµРґРёРЅРµРЅРёРµ СЃС‚СЂРѕРє РєРѕРЅРєРѕС‚РµРЅР°С†РёРµР№
 			break;
 		}
 		else
-			cout << "Файл не удалось создать\n";
+			cout << "Р¤Р°Р№Р» РЅРµ СѓРґР°Р»РѕСЃСЊ СЃРѕР·РґР°С‚СЊ\n";
 	} while (true);
 
 	return filename;
 }
 
-// заполнение файла случайными числами
+// Р·Р°РїРѕР»РЅРµРЅРёРµ С„Р°Р№Р»Р° СЃР»СѓС‡Р°Р№РЅС‹РјРё С‡РёСЃР»Р°РјРё
 ofstream in_text_file(string filename,int N, int M)
 {
 	ofstream file(filename);
@@ -119,7 +119,7 @@ ofstream in_text_file(string filename,int N, int M)
 
 }
 
-// заполнение файла случайными числами через generate
+// Р·Р°РїРѕР»РЅРµРЅРёРµ С„Р°Р№Р»Р° СЃР»СѓС‡Р°Р№РЅС‹РјРё С‡РёСЃР»Р°РјРё С‡РµСЂРµР· generate
 ofstream in_text_fileIn_generate(string filename,int N, int M)
 {
 	ofstream file(filename);
@@ -131,7 +131,7 @@ ofstream in_text_fileIn_generate(string filename,int N, int M)
 	return file;
 }
 
-// загрузка чисел из файла в очередь
+// Р·Р°РіСЂСѓР·РєР° С‡РёСЃРµР» РёР· С„Р°Р№Р»Р° РІ РѕС‡РµСЂРµРґСЊ
 deque<int> load_from_file(string filename)
 {
 	ifstream file(filename);
@@ -148,7 +148,7 @@ deque<int> load_from_file(string filename)
 	return deq_numbers;
 }
 
-// печать очереди в файл
+// РїРµС‡Р°С‚СЊ РѕС‡РµСЂРµРґРё РІ С„Р°Р№Р»
 void PrintFile(string filename,deque<int> &items)
 {
 	ofstream fout;
@@ -165,12 +165,12 @@ void PrintFile(string filename,deque<int> &items)
 	}
 	else
 	{
-		cout << "Ошибка открытия файла!" << endl;
+		cout << "РћС€РёР±РєР° РѕС‚РєСЂС‹С‚РёСЏ С„Р°Р№Р»Р°!" << endl;
 	}
 }
 
 
-// печать очереди на экран
+// РїРµС‡Р°С‚СЊ РѕС‡РµСЂРµРґРё РЅР° СЌРєСЂР°РЅ
 void output_screen(deque<int> &items)
 {
 	deque<int>::const_iterator pos;
@@ -181,7 +181,7 @@ void output_screen(deque<int> &items)
 	}
 }
 
-// функция  для вычисления суммы
+// С„СѓРЅРєС†РёСЏ  РґР»СЏ РІС‹С‡РёСЃР»РµРЅРёСЏ СЃСѓРјРјС‹
 int sum(deque<int> &deq_numbers)
 {
 	int sum = 0;
@@ -195,7 +195,7 @@ int sum(deque<int> &deq_numbers)
 
 
 
-// функция  для вычисления среднего арифметоческого (через итераторы)
+// С„СѓРЅРєС†РёСЏ  РґР»СЏ РІС‹С‡РёСЃР»РµРЅРёСЏ СЃСЂРµРґРЅРµРіРѕ Р°СЂРёС„РјРµС‚РѕС‡РµСЃРєРѕРіРѕ (С‡РµСЂРµР· РёС‚РµСЂР°С‚РѕСЂС‹)
 double average(deque<int>::iterator begin, deque<int>::iterator end)
 {
 	int summ = 0;
@@ -215,7 +215,7 @@ double average(deque<int>::iterator begin, deque<int>::iterator end)
 }
 
 
-// функция  для вычисления среднего арифметоческого
+// С„СѓРЅРєС†РёСЏ  РґР»СЏ РІС‹С‡РёСЃР»РµРЅРёСЏ СЃСЂРµРґРЅРµРіРѕ Р°СЂРёС„РјРµС‚РѕС‡РµСЃРєРѕРіРѕ
 int average(deque<int> &deq_numbers)
 {
 	return average(deq_numbers.begin(), deq_numbers.end());
@@ -244,14 +244,14 @@ int abs_nech()
 		return nech;
 }
 
-// перегруженная функция modify для изменения очереди
+// РїРµСЂРµРіСЂСѓР¶РµРЅРЅР°СЏ С„СѓРЅРєС†РёСЏ modify РґР»СЏ РёР·РјРµРЅРµРЅРёСЏ РѕС‡РµСЂРµРґРё
 deque<int> modify(deque<int>::iterator begin, deque<int>::iterator end)
 {
 		cout<<endl;
 		deque<int> modif_Deque;
 		deque<int> vs = de;
 		bool flag = true;
-		//cout << endl << "Первое абсолютное нечетное: " << abs_nech() << endl;
+		//cout << endl << "РџРµСЂРІРѕРµ Р°Р±СЃРѕР»СЋС‚РЅРѕРµ РЅРµС‡РµС‚РЅРѕРµ: " << abs_nech() << endl;
 		while (!vs.empty())
 		{
 			modif_Deque.push_front(vs.back() + abs_nech());
@@ -261,13 +261,13 @@ deque<int> modify(deque<int>::iterator begin, deque<int>::iterator end)
 		return modif_Deque;
 }
 
-// функция modify для изменения очереди
+// С„СѓРЅРєС†РёСЏ modify РґР»СЏ РёР·РјРµРЅРµРЅРёСЏ РѕС‡РµСЂРµРґРё
 deque<int> modify(deque<int> &deq_numbers)
 {
 	return modify(deq_numbers.begin(), deq_numbers.end());
 }
 
-// функция  для изменения очереди через transform
+// С„СѓРЅРєС†РёСЏ  РґР»СЏ РёР·РјРµРЅРµРЅРёСЏ РѕС‡РµСЂРµРґРё С‡РµСЂРµР· transform
 deque<int> transform_deque(deque<int> &deq_numbers)
 {
 	int arithmetical_mean = average(deq_numbers);
@@ -275,7 +275,7 @@ deque<int> transform_deque(deque<int> &deq_numbers)
 	return deq_numbers;
 }
 
-// функция  для изменения очереди через for_each
+// С„СѓРЅРєС†РёСЏ  РґР»СЏ РёР·РјРµРЅРµРЅРёСЏ РѕС‡РµСЂРµРґРё С‡РµСЂРµР· for_each
 deque<int> for_each_deque(deque<int> &deq_numbers)
 {
 
@@ -291,13 +291,13 @@ int input_number(int min, int max)
 	int n;
 	do
 	{
-		cout << "Введите пункт меню: ";
+		cout << "Р’РІРµРґРёС‚Рµ РїСѓРЅРєС‚ РјРµРЅСЋ: ";
 		while ((!(cin >> n)) || cin.get() != '\n')
 		{
-			cout << "Неправильный ввод !!  Повторите снова!\n";
+			cout << "РќРµРїСЂР°РІРёР»СЊРЅС‹Р№ РІРІРѕРґ !!  РџРѕРІС‚РѕСЂРёС‚Рµ СЃРЅРѕРІР°!\n";
 			cin.clear(); 
 			cin.sync();
-			cout << "Ваш выбор : ";
+			cout << "Р’Р°С€ РІС‹Р±РѕСЂ : ";
 			getchar();
 			getchar();
 		}
@@ -307,16 +307,16 @@ int input_number(int min, int max)
 
 int menu()
 {
-	cout << "Работа с контейнером:" << endl;
-	cout << "1 - modify(преобразование очереди)" << endl;
-	cout << "2 - modify(преобразование очереди - перегруженный вариант) " << endl;
-	cout << "3 - Преобразование с помощью transform" << endl;
-	cout << "4 - Преобразование с помощью for_each" << endl;
-	cout << "5 - Посчитать сумму" << endl;
-	cout << "6 - Посчитать среднее арифметическое" << endl;
-	cout << "7 - Вывод на экран " << endl;
-	cout << "8 - Вывод в файл" << endl;
-	cout << "0 - Выход " << endl;
+	cout << "Р Р°Р±РѕС‚Р° СЃ РєРѕРЅС‚РµР№РЅРµСЂРѕРј:" << endl;
+	cout << "1 - modify(РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёРµ РѕС‡РµСЂРµРґРё)" << endl;
+	cout << "2 - modify(РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёРµ РѕС‡РµСЂРµРґРё - РїРµСЂРµРіСЂСѓР¶РµРЅРЅС‹Р№ РІР°СЂРёР°РЅС‚) " << endl;
+	cout << "3 - РџСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёРµ СЃ РїРѕРјРѕС‰СЊСЋ transform" << endl;
+	cout << "4 - РџСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёРµ СЃ РїРѕРјРѕС‰СЊСЋ for_each" << endl;
+	cout << "5 - РџРѕСЃС‡РёС‚Р°С‚СЊ СЃСѓРјРјСѓ" << endl;
+	cout << "6 - РџРѕСЃС‡РёС‚Р°С‚СЊ СЃСЂРµРґРЅРµРµ Р°СЂРёС„РјРµС‚РёС‡РµСЃРєРѕРµ" << endl;
+	cout << "7 - Р’С‹РІРѕРґ РЅР° СЌРєСЂР°РЅ " << endl;
+	cout << "8 - Р’С‹РІРѕРґ РІ С„Р°Р№Р»" << endl;
+	cout << "0 - Р’С‹С…РѕРґ " << endl;
 	int n = input_number(0, 8);
 	cout << "\n";
 	return n;
@@ -335,19 +335,19 @@ int main()
 	bool enterfile = true;
 
 
-	cout << " _____________________Меню___________________  " << endl;
-	cout << "1 - Заполнение текстового файла случайными числами(цикл)" << endl;
-	cout << "2 - Заполнение текстового файла случайными числами(generate) " << endl;
-	cout << "0 - Выход" << endl;
+	cout << " _____________________РњРµРЅСЋ___________________  " << endl;
+	cout << "1 - Р—Р°РїРѕР»РЅРµРЅРёРµ С‚РµРєСЃС‚РѕРІРѕРіРѕ С„Р°Р№Р»Р° СЃР»СѓС‡Р°Р№РЅС‹РјРё С‡РёСЃР»Р°РјРё(С†РёРєР»)" << endl;
+	cout << "2 - Р—Р°РїРѕР»РЅРµРЅРёРµ С‚РµРєСЃС‚РѕРІРѕРіРѕ С„Р°Р№Р»Р° СЃР»СѓС‡Р°Р№РЅС‹РјРё С‡РёСЃР»Р°РјРё(generate) " << endl;
+	cout << "0 - Р’С‹С…РѕРґ" << endl;
 	changemenu = input_number(0, 2);
 	switch (changemenu)
 	{
 	case 1:
 	{
 		filename = input_file_name();
-		cout << ("введите число N") << endl;
+		cout << ("РІРІРµРґРёС‚Рµ С‡РёСЃР»Рѕ N") << endl;
 		cin >> N;
-		cout << ("введите число M") << endl;
+		cout << ("РІРІРµРґРёС‚Рµ С‡РёСЃР»Рѕ M") << endl;
 		cin >> M;
 		OutputFile = in_text_file(filename, N, M);
 		break;
@@ -356,9 +356,9 @@ int main()
 	case 2:
 	{
 		filename = input_file_name();
-		cout << ("введите число N") << endl;
+		cout << ("РІРІРµРґРёС‚Рµ С‡РёСЃР»Рѕ N") << endl;
 		cin >> N;
-		cout << ("введите число M") << endl;
+		cout << ("РІРІРµРґРёС‚Рµ С‡РёСЃР»Рѕ M") << endl;
 		cin >> M;
 		OutputFile =in_text_fileIn_generate(filename, N, M);
 		break;
@@ -392,15 +392,15 @@ int main()
 				break;
 
 			case 5:
-				cout << "Сумма: " << sum(deq_numbers) << endl;
+				cout << "РЎСѓРјРјР°: " << sum(deq_numbers) << endl;
 				break;
 
 			case 6:
-				cout << "Среднее арифметическое: " << average(deq_numbers) << endl;
+				cout << "РЎСЂРµРґРЅРµРµ Р°СЂРёС„РјРµС‚РёС‡РµСЃРєРѕРµ: " << average(deq_numbers) << endl;
 				break;
 
 			case 7:
-				cout << "Очередь: " << endl;
+				cout << "РћС‡РµСЂРµРґСЊ: " << endl;
 				output_screen(deq_numbers);
 				break;
 
@@ -409,13 +409,13 @@ int main()
 				break;
 
 			default:
-				cout << "Выход " << endl; exit(0);
+				cout << "Р’С‹С…РѕРґ " << endl; exit(0);
 				break;
 
 			}
 		}
 	}
 	else
-		cout << "Выход\n";
+		cout << "Р’С‹С…РѕРґ\n";
 	system("pause");
 }
